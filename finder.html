@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--glub-->
+
+<!--
+    *I am trying to use google maps api to generate a map and put it on the finder page
+    *this google map will take either geolocation data or user inputted data in which
+    google api will highlight and pin tabletop gaming store locations on the map in the city or
+    vicinity of the geolocation or input location 
+
+
+    useful websites:
+    https://developers.google.com/maps/documentation/embed/start
+    https://codelabs.developers.google.com/codelabs/google-maps-nearby-search-js/#0
+    https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding
+
+
+    the google api key is needed for any interactions with the google api
+    GOOGLE API KEY: AIzaSyBzvmigqjNkN6HZiQjle8GhYSwl_DHhL38
+
+-->
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Dice Finder</title>
+    <meta name= "description" content="GlubCast - Dice Finder">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.con/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/coreStyle.css">
+
+    <!--<script src="scripts/finderscript.js"></script> -->
+
+
+
+</head>
+
+<body>
+
+    <div id="banner" class="banner-container">
+
+    </div>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="color: #a35414" href="#"><img src="NavbarImages/d20.png" height="40" width="40"><img src="NavbarImages/d6.png" height="36" width="36"><img src="NavbarImages/d4.png" height="36" width="36"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html" style="color:#a35414"> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="battle.html" style="color: #a35414"> Battle Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ranchar.html" style="color: #a35414"> RCG</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="finder.html" style="color: lightgray"> Dice Finder</a>
+            </li>
+          </ul>
+        </div>
+
+    </nav>
+
+    <div class="content-container">
+        
+        <div class="map-search">
+            <form id="map-search-form">
+                <label for="locationinput">Enter Town/City name or post code: </label>
+                <input type="text" id="locationinput" name="locationinput">
+                <input type="submit" name="submitLocation">
+            </form>
+
+            <script>
+                var form = document.getElementById('map-search-form');
+                if (form.attachEvent) {
+                    form.attachEvent("submit", manualMap());
+                } else {
+                form.addEventListener("submit", manualMap());
+                } 
+            </script>
+            
+            <div class="map-container">
+
+            </div>
+            <!--original google maps code: <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJSXXXH0wFhEgRcsT0XNoFu-g&key=AIzaSyBzvmigqjNkN6HZiQjle8GhYSwl_DHhL38" allowfullscreen></iframe>-->
+            
+        </div>
+
+        <div class="dice-links">
+
+            <br>
+            
+            <h1>Or purchase from these websites:</h1>
+            <br>
+            <h3>Europe:</h3>
+                <ul>
+                    <li>insert website here:</li>
+                </ul>
+            <h3>North America:</h3>
+                <ul>
+                    <li>insert website here:</li>
+                </ul>
+        </div>
+    </div>
+
+    <div id="footer" class="footer-container">
+
+    </div>
+
+    <script src="scripts/finderscript.js"></script>
+
+</body>
+

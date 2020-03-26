@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- Glub -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Battle Map</title>
+    <meta name="description" content="GlubCast - Battle Map" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--<script src="//ajax.googleapis.con/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="scripts/initScript.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/coreStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="banner" class="banner-container"></div>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" style="color: #a35414" href="#"
+        ><img src="NavbarImages/d20.png" height="40" width="40"/><img
+          src="NavbarImages/d6.png"
+          height="36"
+          width="36"/><img src="NavbarImages/d4.png" height="36" width="36"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html" style="color: #a35414">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="battle.html" style="color: lightgray">Battle Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ranchar.html" style="color: #a35414">RCG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="finder.html" style="color: #a35414">Dice Finder</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-container">
+      <!-- Initiative Tracker -->
+      <div id="initTracker" class="init-container" style="display: inline-block; margin: 20px; width:25%; min-width: 300px;">
+        <table id="initTable">
+          <tr>
+            <th>Character Name</th>
+            <th>Initiative</th>
+          </tr>
+
+          <!--<tr id = "initButtons">
+                    
+                    <th><button type="submitInit" id = "submitInit">Submit Initiative</button></th>
+                    <th><button type="newRow" id = "newRow">New Row</button></th>
+              
+                </tr>-->
+        </table>
+
+        <button type="submitInit" width="100%" id="submitInit">Submit Initiative</button>
+        <button type="newRow" id="newRow">New Row</button>
+        <button type="nextInit" id="nextInit">Next</button>
+        <button type="backToEdit" id="backToEdit">Back To Edit</button>
+      </div>
+
+      <div class="battleMap-container"style="padding: 20px; margin: 20px; width: 460px; display: inline-block; top: 0; position: static;">
+        <div id="battleMap" style="width: 400px; height: 400px; position: relative; padding: 0px; margin: 10px; top: 0;">
+          <!--Grid and background image-->
+          <img id="mapBack" src="testImg.jpg" style="width:100%; height:100%; padding: 0; margin: 0; z-index: 1;">
+
+          <grid style="position: absolute; top: 0px; left: 0px">
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+            <row><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd><grd>0</grd></row>
+          </grid>
+        </div>
+        <div
+          id="counter-tray"
+          style="display: inline-block; margin-left: 10px; margin-top: 20px; width: 400px; height: 60px; background-color: darkslategray;">
+          <span class="pieces x"></span><span class="pieces r"></span>
+          <span class="pieces g"></span><span class="pieces b"></span>
+        </div>
+        <button id="clearBtn">Clear Counters</button>
+        <button id="imgBtn">Upload Map</button>
+      </div>
+
+      <div id="dice-roller" class="dice-container">
+        <!--This div contains everything pertaining to the dice roller functionality of the site-->
+        <div id="dice-out" class="output-box">
+          <!--output area for dice roll results-->
+        </div>
+        <div id="dice-in" class="input-box">
+          <!--this div contains the form responsible for Dice Roll input and calculation uses the dice roller script-->
+          <form>
+            <label>Enter your dice roll:</label>
+            <input type="text" id="diceIn" name="diceIn" />
+            <input type="button" id="diceSubmit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="footer-container"></div>
+
+    <!--Script for draggable pieces-->
+    <script>
+      $(function() {
+        $(".pieces").draggable({
+          containment: ".battleMap-container"
+          //stop: function() {
+          //    $("#counter-tray").prepend(<span class="pieces x"></span>,<span class="pieces r"></span>,<span class="pieces g"></span>,<span class="pieces b"></span>)
+          //}
+        });
+      });
+    </script>
+    <script>
+      //script for handling dice rolling
+      $("#diceSubmit").click(function() {
+        // the script activates when the button in the dice form is pressed
+        $("#dice-out").empty(); // clears the dice out div ready for new results
+        var input = ""; //these lines declare all variables used in the main body of the script to store the paramaters of the roll
+        var amount = 0;
+        var sides = 0;
+        var modifier = 0;
+        input = $("#diceIn").val(); // uses JQuery to get the value of the dice input box
+
+        //try { // enclosed in a try catch to allow for simple error checking
+        var splitString = input.split("D"); //declares a new array and populates it using the string.split using "D" as the delimiter, this gives an array with the number of dice to roll in index 0
+        amount = splitString[0]; // this amount of dice is then split off into a new variable
+        //console.log(amount)
+        var subString = input.substring(input.indexOf("D") + 1); // this line takes a substring of the input ignoring the D and everything before it, leaving us with the sides and the modifier which is placed in a new variable
+        var splitString = subString.split("+"); // splits the substring created previously around the "+" leaving us with the sides in index 0 and the modifier in index 1
+        sides = splitString[0]; // these lines take the remaining two parameters from the previously created substring
+        modifier = splitString[1];
+        //console.log(sides)
+        //console.log(modifier)
+        for (var i = 0; i < amount; i++) {
+          // begins a loop to calculate the dice rolls for the amount of dice asked to roll
+          var roll = diceRoll(sides, modifier); // calls the dice roll function taking in the sides and modifier as parameters
+          if (roll - modifier == 1 && sides == 20) {
+            // this if statement is designed to detect whether either a natural 20 or a natural 1 is rolled and will respond accordingly, if neither are detected the roll will output as normal
+            $("#dice-out").append(
+              "<p>NATURAL 1, best prepare for whatever ill fate the dm has planned for you!"
+            );
+          } else if (roll - modifier == 20 && sides == 20) {
+            $("#dice-out").append(
+              "<p>NATURAL 20, congratulations, the world is your oyster, how do you want to do this!"
+            );
+          } else {
+            $("#dice-out").append(
+              "<p>The result of the dice roll D" + subString + " is: " + roll
+            ); // outputs the result of the roll to the dice-out div
+          }
+          //console.log(roll)
+        }
+
+        //  } //catch (error) {
+        //   alert("ERROR: Unexpected input detected, please enter your roll in the standard format")
+        //  }
+      });
+
+      function diceRoll(sides, modifier) {
+        // this function performs the actual dice roll calculation
+        var rand = Math.random() * sides + 1; //generates a random number between 0-1 and multiplies it by the sides to give a number between 0- sides
+        //console.log("rand" + rand)
+        var floor = Math.floor(rand); //rounds the roll down, to give a whole integer number between 0-sides
+        // console.log("floor" + floor)
+        var total = parseInt(floor) + parseInt(modifier); //adds the relevent modifiers and adds 1 so that the result is between 1 + range
+        //console.log("total" + total)
+        return total;
+      }
+    </script>
+  </body>
+</html>
